@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Actions>
+	<!-- Playback Control Actions -->
+	<Action id="play" deviceFilter="self">
+		<n>Play</n>
+		<CallbackMethod>actionPlay</CallbackMethod>
+	</Action>
+	
+	<Action id="pause" deviceFilter="self">
+		<n>Pause</n>
+		<CallbackMethod>actionPause</CallbackMethod>
+	</Action>
+	
+	<Action id="playpause" deviceFilter="self">
+		<n>Play/Pause Toggle</n>
+		<CallbackMethod>actionPlayPause</CallbackMethod>
+	</Action>
+	
+	<Action id="stop" deviceFilter="self">
+		<n>Stop</n>
+		<CallbackMethod>actionStop</CallbackMethod>
+	</Action>
+	
+	<Action id="nextTrack" deviceFilter="self">
+		<n>Next Track</n>
+		<CallbackMethod>actionNextTrack</CallbackMethod>
+	</Action>
+	
+	<Action id="previousTrack" deviceFilter="self">
+		<n>Previous Track</n>
+		<CallbackMethod>actionPreviousTrack</CallbackMethod>
+	</Action>
+	
+	<!-- Volume Control Actions -->
+	<Action id="setVolume" deviceFilter="self">
+		<n>Set Volume</n>
+		<CallbackMethod>actionSetVolume</CallbackMethod>
+		<ConfigUI>
+			<Field id="volume" type="textfield" defaultValue="50">
+				<Label>Volume (0-100):</Label>
+			</Field>
+		</ConfigUI>
+	</Action>
+	
+	<Action id="volumeUp" deviceFilter="self">
+		<n>Volume Up</n>
+		<CallbackMethod>actionVolumeUp</CallbackMethod>
+		<ConfigUI>
+			<Field id="amount" type="textfield" defaultValue="10">
+				<Label>Amount to increase (0-100):</Label>
+			</Field>
+		</ConfigUI>
+	</Action>
+	
+	<Action id="volumeDown" deviceFilter="self">
+		<n>Volume Down</n>
+		<CallbackMethod>actionVolumeDown</CallbackMethod>
+		<ConfigUI>
+			<Field id="amount" type="textfield" defaultValue="10">
+				<Label>Amount to decrease (0-100):</Label>
+			</Field>
+		</ConfigUI>
+	</Action>
+	
+	<Action id="mute" deviceFilter="self">
+		<n>Mute</n>
+		<CallbackMethod>actionMute</CallbackMethod>
+	</Action>
+	
+	<Action id="unmute" deviceFilter="self">
+		<n>Unmute</n>
+		<CallbackMethod>actionUnmute</CallbackMethod>
+	</Action>
+	
+	<!-- Position Control Actions -->
+	<Action id="setPosition" deviceFilter="self">
+		<n>Set Playback Position</n>
+		<CallbackMethod>actionSetPosition</CallbackMethod>
+		<ConfigUI>
+			<Field id="position" type="textfield" defaultValue="0">
+				<Label>Position (seconds):</Label>
+			</Field>
+		</ConfigUI>
+	</Action>
+	
+	<Action id="skipForward" deviceFilter="self">
+		<n>Skip Forward</n>
+		<CallbackMethod>actionSkipForward</CallbackMethod>
+		<ConfigUI>
+			<Field id="seconds" type="textfield" defaultValue="10">
+				<Label>Seconds to skip:</Label>
+			</Field>
+		</ConfigUI>
+	</Action>
+	
+	<Action id="skipBackward" deviceFilter="self">
+		<n>Skip Backward</n>
+		<CallbackMethod>actionSkipBackward</CallbackMethod>
+		<ConfigUI>
+			<Field id="seconds" type="textfield" defaultValue="10">
+				<Label>Seconds to skip:</Label>
+			</Field>
+		</ConfigUI>
+	</Action>
+	
+	<!-- Shuffle and Repeat Actions -->
+	<Action id="setShuffle" deviceFilter="self">
+		<n>Set Shuffle</n>
+		<CallbackMethod>actionSetShuffle</CallbackMethod>
+		<ConfigUI>
+			<Field id="shuffleState" type="menu" defaultValue="toggle">
+				<Label>Shuffle State:</Label>
+				<List>
+					<Option value="on">On</Option>
+					<Option value="off">Off</Option>
+					<Option value="toggle">Toggle</Option>
+				</List>
+			</Field>
+		</ConfigUI>
+	</Action>
+	
+	<Action id="setRepeat" deviceFilter="self">
+		<n>Set Repeat</n>
+		<CallbackMethod>actionSetRepeat</CallbackMethod>
+		<ConfigUI>
+			<Field id="repeatState" type="menu" defaultValue="toggle">
+				<Label>Repeat State:</Label>
+				<List>
+					<Option value="off">Off</Option>
+					<Option value="one">One (Current Track)</Option>
+					<Option value="all">All</Option>
+					<Option value="toggle">Toggle</Option>
+				</List>
+			</Field>
+		</ConfigUI>
+	</Action>
+	
+	<!-- Playlist and Track Selection Actions -->
+	<Action id="playPlaylist" deviceFilter="self">
+		<n>Play Playlist</n>
+		<CallbackMethod>actionPlayPlaylist</CallbackMethod>
+		<ConfigUI>
+			<Field id="playlistName" type="textfield">
+				<Label>Playlist Name:</Label>
+				<Description>Name of playlist in your Apple Music library</Description>
+			</Field>
+		</ConfigUI>
+	</Action>
+	
+	<Action id="playAlbum" deviceFilter="self">
+		<n>Play Album</n>
+		<CallbackMethod>actionPlayAlbum</CallbackMethod>
+		<ConfigUI>
+			<Field id="albumName" type="textfield">
+				<Label>Album Name:</Label>
+			</Field>
+			<Field id="artistName" type="textfield">
+				<Label>Artist Name (optional):</Label>
+			</Field>
+		</ConfigUI>
+	</Action>
+	
+	<Action id="searchAndPlay" deviceFilter="self">
+		<n>Search and Play</n>
+		<CallbackMethod>actionSearchAndPlay</CallbackMethod>
+		<ConfigUI>
+			<Field id="searchQuery" type="textfield">
+				<Label>Search Query:</Label>
+			</Field>
+		</ConfigUI>
+	</Action>
+	
+	<!-- Rating Actions -->
+	<Action id="setRating" deviceFilter="self">
+		<n>Set Rating</n>
+		<CallbackMethod>actionSetRating</CallbackMethod>
+		<ConfigUI>
+			<Field id="rating" type="menu" defaultValue="0">
+				<Label>Rating:</Label>
+				<List>
+					<Option value="0">No Rating</Option>
+					<Option value="20">1 Star</Option>
+					<Option value="40">2 Stars</Option>
+					<Option value="60">3 Stars</Option>
+					<Option value="80">4 Stars</Option>
+					<Option value="100">5 Stars</Option>
+				</List>
+			</Field>
+		</ConfigUI>
+	</Action>
+	
+	<!-- Update Action -->
+	<Action id="updateNow" deviceFilter="self">
+		<n>Update Now</n>
+		<CallbackMethod>actionUpdateNow</CallbackMethod>
+	</Action>
+</Actions>
