@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PluginConfig>
+	<Field id="showDebugInfo" type="checkbox" defaultValue="false">
+		<Label>Show debug information in log</Label>
+	</Field>
+</PluginConfig>
