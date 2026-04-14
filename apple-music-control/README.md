@@ -2,6 +2,13 @@
 
 A comprehensive Indigo plugin for controlling Apple Music and monitoring all playback data in real-time.
 
+## Version 1.0.7 - Stability Update
+**Fixed**: Actions now properly appear in Action Groups. Changed `deviceFilter="self"` to `deviceFilter="self.appleMusicPlayer"` for better action registration.
+
+**To use actions**: In Action Groups, select "Device Actions" → Choose your Apple Music Player device → Actions will appear!
+
+---
+
 ## Features
 
 ### Device States (Auto-Updated)
@@ -112,6 +119,16 @@ If enabled, the plugin will create and update Indigo variables with all Apple Mu
 - Variables are created automatically if they don't exist
 
 ## Usage Examples
+
+### Adding Actions to Action Groups
+
+**IMPORTANT**: To use Apple Music actions in Action Groups:
+
+1. Create or edit an Action Group
+2. Click "+" to add an action
+3. **Type**: Select **"Device Actions"** (NOT "Plugin Actions")
+4. **Device**: Select your **"Apple Music Player"** device
+5. **Action**: Now select from all available actions!
 
 ### Basic Playback Control
 ```applescript
@@ -242,6 +259,9 @@ if time is 8:00 PM:
 
 ## Troubleshooting
 
+### Actions Not Showing in Action Groups
+**Solution**: Use "Device Actions" (not "Plugin Actions") and select your Apple Music Player device first. This is the correct Indigo workflow for device-specific actions.
+
 ### Plugin Not Updating
 - Ensure Music app is running
 - Check that Update Frequency is set appropriately
@@ -298,6 +318,12 @@ The plugin uses AppleScript to communicate with Music:
 - **No URIs**: Uses playlist/album names instead of Spotify URIs
 
 ## Version History
+
+### 1.0.7 (Current)
+- Fixed action visibility in Action Groups
+- Changed device filter from "self" to "self.appleMusicPlayer"
+- Added debug logging to action handlers
+- Improved documentation for action usage
 
 ### 1.0.2
 - Fixed error when Music app has no current track (stopped state)
