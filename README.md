@@ -2,7 +2,7 @@
 
 A comprehensive Indigo plugin for controlling Apple Music and monitoring all playback data in real-time.
 
-## Version 1.0.7 - Stability Update
+## Version 1.0.8 - UTF-8-safe AppleScript execution and metadata handling
 **Fixed**: Actions now properly appear in Action Groups. Changed `deviceFilter="self"` to `deviceFilter="self.appleMusicPlayer"` for better action registration.
 
 **To use actions**: In Action Groups, select "Device Actions" → Choose your Apple Music Player device → Actions will appear!
@@ -319,7 +319,7 @@ The plugin uses AppleScript to communicate with Music:
 
 ## Version History
 
-### 1.0.7 (Current)
+### 1.0.3 (Current)
 - Fixed action visibility in Action Groups
 - Changed device filter from "self" to "self.appleMusicPlayer"
 - Added debug logging to action handlers

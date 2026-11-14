@@ -3,7 +3,7 @@
 """
 Apple Music Control Plugin for Indigo
 Provides comprehensive control and monitoring of Apple Music playback
-Version 1.0.7 - Reduced AppleScript/UI scripting load, added timeouts, and ASCII-safe payload delimiter
+Version 1.0.8 - UTF-8-safe AppleScript execution and metadata handling
 """
 
 import indigo
@@ -248,13 +248,22 @@ class Plugin(indigo.PluginBase):
                 lockAcquired = self.scriptLock.acquire(False)
                 if not lockAcquired:
                     return BUSY_RESULT
+            # Explicitly use UTF-8 for AppleScript input/output.
+            # macOS/Indigo can otherwise inherit an ASCII locale, which causes
+            # failures when Music returns UTF-8 track metadata (e.g. accented
+            # artist/album names).
             process = subprocess.run(
-                ['osascript', '-'], input=script, text=True,
-                stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=timeout
+                ['osascript', '-'],
+                input=script.encode('utf-8'),
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                timeout=timeout
             )
-            if process.stderr:
-                self.debugLog(u"AppleScript stderr: {}".format(process.stderr.strip()))
-            return process.stdout.strip()
+            stdout = process.stdout.decode('utf-8', errors='replace')
+            stderr = process.stderr.decode('utf-8', errors='replace')
+            if stderr:
+                self.debugLog(u"AppleScript stderr: {}".format(stderr.strip()))
+            return stdout.strip()
         except subprocess.TimeoutExpired:
             self.errorLog(u"AppleScript timed out after {} seconds".format(timeout))
             return None
